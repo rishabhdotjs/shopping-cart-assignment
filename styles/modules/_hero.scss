@@ -1,0 +1,30 @@
+.hero {
+  background-color: #fff;
+  position: relative;
+  display: flex;
+  align-items: center;
+  padding: toRem(20);
+  margin-bottom: toRem(40);
+  &::after {
+    z-index: -1;
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 12px;
+    right: 12px;
+    bottom: 0;
+    box-shadow: 0 0px 6px 7px rgb(100 100 100 / 50%);
+    border-radius: 450px / 15px;
+  }
+  &--right {
+    order: 2;
+  }
+  &__image {
+    position: relative;
+    width: 33%;
+  }
+  &__text {
+    width: 77%;
+    text-align: center;
+  }
+}

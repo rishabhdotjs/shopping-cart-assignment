@@ -1,0 +1,76 @@
+.app {
+  &__header {
+    display: flex;
+    padding: toRem(10) 0;
+    box-shadow: 0 8px 6px -6px #ddd;
+  }
+  &__logo {
+    position: relative;
+    width: 95px;
+    height: 48px;
+    @include respond-above(sm) {
+      width: 190px;
+      height: 96px;
+    }
+  }
+  &__navigation {
+    display: flex;
+    flex-grow: 1;
+    align-items: flex-end;
+    padding-left: toRem(50);
+    padding-bottom: toRem(20);
+    ul {
+      @include flex-list;
+      li {
+        a {
+          padding: 0 toRem(10);
+          font-weight: 600;
+        }
+      }
+    }
+    @include respond-below(xs) {
+      display: none;
+    }
+  }
+  &__minicart {
+    display: flex;
+    align-items: center;
+    flex-grow: 1;
+    justify-content: center;
+    padding: 0 toRem(20);
+    @include theme-aware('color', 'color-text');
+    @include theme-aware('background-color', 'color-background-lightgrey');
+    margin-bottom: toRem(-10);
+    @include respond-below(xs) {
+      margin-top: toRem(-10);
+      margin-right: toRem(-20);
+    }
+    svg {
+      width: 32px;
+      height: 32px;
+      @include theme-aware('color', 'button-background-color');
+      margin-right: toRem(10);
+    }
+  }
+  &__submenu {
+    display: flex;
+    flex-direction: column;
+    padding-left: toRem(20);
+    margin-left: auto;
+    &__login {
+      margin-bottom: toRem(20);
+      @include respond-below(xs) {
+        display: none;
+      }
+      ul {
+        @include flex-list;
+        li {
+          a {
+            padding: 0 0 0 toRem(10);
+            font-weight: 600;
+          }
+        }
+      }
+    }
+  }
+}

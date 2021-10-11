@@ -1,0 +1,12 @@
+.app {
+  &__container {
+    width: 100%;
+    margin: 0 auto;
+    max-width: 1140px;
+    padding: 0 toRem(20);
+  }
+}
+
+#main {
+  padding: toRem(20);
+}

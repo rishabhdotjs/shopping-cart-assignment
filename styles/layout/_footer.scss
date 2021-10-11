@@ -1,0 +1,6 @@
+.app {
+  &__footer {
+    padding: toRem(20) 0;
+    @include theme-aware('background-color', 'color-background-lightgrey');
+  }
+}

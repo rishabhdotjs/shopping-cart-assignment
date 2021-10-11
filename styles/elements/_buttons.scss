@@ -1,0 +1,21 @@
+.btn {
+  @include theme-aware('border-color', 'button-background-color');
+  border-width: 1px;
+  border-style: solid;
+  padding: toRem(10) toRem(20);
+  cursor: pointer;
+  &--primary {
+    @include theme-aware('background-color', 'button-background-color');
+    @include theme-aware('color', 'button-text-color');
+    &:hover,
+    &:focus,
+    &:active {
+      @include theme-aware('background-color', 'button-background-color-hover');
+      @include theme-aware('color', 'button-text-color-hover');
+      @include all-transition();
+    }
+  }
+  &--block {
+    width: 100%;
+  }
+}

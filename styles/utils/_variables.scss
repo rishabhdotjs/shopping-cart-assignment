@@ -1,0 +1,20 @@
+// A map of breakpoints.
+$breakpoints: (
+  xs: 576px,
+  sm: 768px,
+  md: 992px,
+  lg: 1200px,
+);
+
+$fontSizes: (
+  // x-large
+  xl: 5rem,
+  // large
+  lg: 2rem,
+  // medium
+  md: 1.5rem,
+  // small
+  sm: 1.2rem,
+  // regular
+  regular: 1rem
+);

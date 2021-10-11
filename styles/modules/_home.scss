@@ -1,0 +1,41 @@
+.home {
+  &__carousel {
+    position: relative;
+    margin-bottom: toRem(30);
+    background-color: #fff;
+    &::after {
+      z-index: -1;
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 12px;
+      right: 12px;
+      bottom: 0;
+      box-shadow: 0 0px 6px 7px rgb(100 100 100 / 50%);
+      border-radius: 450px / 15px;
+    }
+    .custom-arrow {
+      right: 0;
+      background-color: rgba(0, 0, 0, 0.2);
+      font-size: 16px;
+      line-height: 16px;
+      color: #fff;
+      min-width: 50px;
+      padding: 5px;
+      height: auto;
+      z-index: 1;
+      &::before {
+        content: '';
+        display: none;
+      }
+      &.slick-prev {
+        left: 0;
+      }
+    }
+    .custom-dots {
+      z-index: 2;
+      position: relative;
+      bottom: toRem(20);
+    }
+  }
+}
