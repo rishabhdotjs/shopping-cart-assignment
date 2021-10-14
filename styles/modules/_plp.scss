@@ -1,0 +1,41 @@
+.plp {
+  display: flex;
+  flex-wrap: wrap;
+  &__sidebar {
+    width: 20%;
+    @include theme-aware('background-color', 'color-background-lightgrey');
+    margin-top: toRem(-20);
+    padding-top: toRem(20);
+    .filters {
+      width: 100%;
+      margin: 0;
+      padding: 0;
+      list-style-type: none;
+      display: inline-block;
+      li {
+        width: 100%;
+        a {
+          display: block;
+          width: 100%;
+          padding: toRem(20);
+          border-bottom: 1px solid #d6d6d6;
+          &.active {
+            @include theme-aware('color', 'links-color-hover');
+            @include all-transition();
+          }
+        }
+      }
+    }
+  }
+  &__main {
+    display: grid;
+    grid-template-columns: 1fr;
+    @include respond-above(xs) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    @include respond-above(md) {
+      grid-template-columns: repeat(4, 1fr);
+    }
+    width: 80%;
+  }
+}

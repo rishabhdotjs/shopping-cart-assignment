@@ -1,4 +1,5 @@
 .btn {
+  display: inline-block;
   @include theme-aware('border-color', 'button-background-color');
   border-width: 1px;
   border-style: solid;
@@ -18,4 +19,9 @@
   &--block {
     width: 100%;
   }
+}
+
+button:disabled,
+[disabled] {
+  opacity: 0.1;
 }

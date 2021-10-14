@@ -1,6 +1,7 @@
 // vendors
 @import 'vendors/normalize.css';
 @import 'vendors/slick';
+@import 'vendors/nprogress';
 
 // utils
 @import 'utils/variables';
@@ -21,7 +22,11 @@
 // elements
 @import 'elements/buttons';
 @import 'elements/inputs';
+@import 'elements/modal';
 
 // modules
 @import 'modules/home';
 @import 'modules/hero';
+@import 'modules/plp';
+@import 'modules/productCard';
+@import 'modules/cart';

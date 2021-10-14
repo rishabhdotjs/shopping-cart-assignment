@@ -10,6 +10,12 @@ export default function Layout({ children }: Props): JSX.Element {
     <>
       <Header />
       <main id="main" className="app__container">
+        <div
+          id="modal-container"
+          role="dialog"
+          aria-modal="true"
+          aria-labelledby="modalTitle"
+        />
         {children}
       </main>
       <Footer />

@@ -26,5 +26,9 @@
   &__text {
     width: 77%;
     text-align: center;
+    h3,
+    p {
+      margin: 0 0 toRem(10);
+    }
   }
 }

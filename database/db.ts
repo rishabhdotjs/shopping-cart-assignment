@@ -1,38 +1,54 @@
 import { T_Banner } from '../utils/types/banner';
 import { T_Category } from '../utils/types/categories';
-import { DATAPATHS } from '../utils/types/datapaths';
+import { T_Product } from '../utils/types/product';
 import utils from '../utils/utils';
 
-export type FileReadType = T_Banner | T_Category;
-
 const db = {
-  get: async function (
-    folderName: string,
-    fileName: string
-  ): Promise<FileReadType[] | null> {
-    const data = await utils.readFile(folderName, fileName);
-    return data;
-  },
-  getSortedByOrder: async function (
-    folderName: string,
-    fileName: string
-  ): Promise<FileReadType[] | null> {
-    const data = await utils.readFile(folderName, fileName);
-    if (data) {
-      const sortedData = data.sort((a, b) => {
-        return a.order - b.order;
-      });
-      // Discriminated Unions
-      const filteredData: FileReadType[] = sortedData.filter((d) => {
-        if (d.kind === 'banner') {
-          return d.isActive;
-        } else {
-          return d.enabled;
-        }
-      });
+  getBanners: async function (): Promise<T_Banner[] | null> {
+    const data = await utils.readFile<T_Banner>('banners', 'index.get.json');
+    if (data && Array.isArray(data)) {
+      const sortedData = utils.sortByOrder(data, 'order');
+      const filteredData = utils.filterByKey(sortedData, 'isActive');
       return filteredData;
     }
-    return data;
+    return null;
+  },
+  getCategories: async function (): Promise<T_Category[] | null> {
+    const data = await utils.readFile<T_Category>(
+      'categories',
+      'index.get.json'
+    );
+    if (data && Array.isArray(data)) {
+      const sortedData = utils.sortByOrder(data, 'order');
+      const filteredData = utils.filterByKey(sortedData, 'enabled');
+      return filteredData;
+    }
+    return null;
+  },
+  getProductsById: async function (
+    categoryId: string
+  ): Promise<T_Product[] | null> {
+    const products = await utils.readFile<T_Product>(
+      'products',
+      'index.get.json'
+    );
+    if (products && Array.isArray(products)) {
+      // based on passed categoryId filter products
+      const foundProducts = utils.filterByKey(products, 'category', categoryId);
+      return foundProducts;
+    }
+    return null;
+  },
+  getProducts: async function (): Promise<T_Product[] | null> {
+    const products = await utils.readFile<T_Product>(
+      'products',
+      'index.get.json'
+    );
+    if (products && Array.isArray(products)) {
+      // based on passed categoryId filter products
+      return products;
+    }
+    return null;
   },
 };
 

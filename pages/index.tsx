@@ -4,7 +4,6 @@ import db from '../database/db';
 import CustomSlider from '../src/components/shared/CustomSlider/CustomSlider';
 import { T_Banner } from '../utils/types/banner';
 import { T_Category } from '../utils/types/categories';
-import { DATAPATHS } from '../utils/types/datapaths';
 import HeroBanner from '../src/components/shared/Hero/Hero';
 
 type HomeProps = {
@@ -34,7 +33,9 @@ const Home = ({ banners, categories }: HomeProps): JSX.Element => {
       <article className="home__categories">
         {categories &&
           categories.map((category) => (
-            <HeroBanner {...category} key={category.id} />
+            <div key={category.id}>
+              <HeroBanner itemKey={category.key} {...category} />
+            </div>
           ))}
       </article>
     </div>
@@ -42,14 +43,8 @@ const Home = ({ banners, categories }: HomeProps): JSX.Element => {
 };
 
 export const getStaticProps: GetStaticProps = async () => {
-  const banners = await db.getSortedByOrder(
-    DATAPATHS.BANNERS,
-    'index.get.json'
-  );
-  const categories = await db.getSortedByOrder(
-    DATAPATHS.CATEGORIES,
-    'index.get.json'
-  );
+  const banners = await db.getBanners();
+  const categories = await db.getCategories();
   return {
     props: {
       banners,

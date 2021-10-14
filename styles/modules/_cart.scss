@@ -1,0 +1,105 @@
+.cart {
+  position: relative;
+  height: 100%;
+  &__noItems {
+    text-align: center;
+  }
+  &__header {
+    padding: toRem(10);
+    h3 {
+      margin: 0;
+      @include theme-aware('background-color', 'color-background');
+      padding: toRem(10);
+      small {
+        font-weight: normal;
+      }
+    }
+  }
+  .price-gurantee {
+    position: relative;
+    display: flex;
+    margin-bottom: toRem(15);
+    @include theme-aware('background-color', 'color-background');
+    padding: toRem(10);
+    margin: toRem(15);
+    p {
+      margin-left: toRem(20);
+    }
+  }
+  &__footer {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    @include theme-aware('background-color', 'color-background');
+    &__btn {
+      display: flex;
+      text-align: left;
+      align-items: center;
+      span {
+        margin-left: auto;
+      }
+    }
+  }
+}
+
+.card {
+  display: flex;
+  align-items: center;
+  @include theme-aware('background-color', 'color-background');
+  margin-bottom: toRem(15);
+  padding: toRem(10);
+  &__image {
+    position: relative;
+  }
+  &__body {
+    flex-grow: 1;
+    padding-left: toRem(10);
+    .item {
+      &__header {
+        margin-bottom: toRem(10);
+        h3 {
+          margin: 0;
+          font-size: 16px;
+        }
+      }
+      &__body {
+        display: flex;
+        .qty {
+          &__btn {
+            cursor: pointer;
+            @include theme-aware('border-color', 'button-background-color');
+            border-width: 1px;
+            border-style: solid;
+            @include theme-aware('background-color', 'button-background-color');
+            @include theme-aware('color', 'button-text-color');
+            &:hover,
+            &:active {
+              @include theme-aware(
+                'background-color',
+                'button-background-color-hover'
+              );
+              @include theme-aware('color', 'button-text-color-hover');
+              @include all-transition();
+            }
+          }
+          &__input {
+            width: 40px;
+            margin: 0 toRem(10);
+            text-align: center;
+          }
+          &__price {
+            i {
+              font-style: normal;
+              margin: 0 toRem(10) 0 toRem(15);
+            }
+          }
+        }
+        .price {
+          margin-left: auto;
+        }
+      }
+    }
+  }
+}

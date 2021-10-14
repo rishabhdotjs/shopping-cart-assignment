@@ -1,0 +1,43 @@
+.pcard {
+  display: flex;
+  flex-wrap: wrap;
+  @include theme-aware('border-bottom-color', 'color-background-darkgrey');
+  border-bottom-width: 1px;
+  border-bottom-style: dashed;
+  box-shadow: 5px 0 5px -5px #ccc;
+  padding: toRem(15);
+  &__head {
+    width: 100%;
+    min-height: 200px;
+  }
+  &__name {
+    font-size: toRem(18);
+  }
+  &__image {
+    position: relative;
+  }
+  &__body {
+    width: 100%;
+    @include theme-aware('background-color', 'color-background-lightgrey');
+    padding: toRem(8);
+    border-radius: 5px;
+    margin-bottom: toRem(10);
+    p {
+      margin: 0;
+      display: -webkit-box;
+      -webkit-line-clamp: 4;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      font-size: toRem(14);
+    }
+  }
+  &__footer {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    align-self: flex-end;
+    .buy-now {
+      margin-left: auto;
+    }
+  }
+}

@@ -1,5 +1,4 @@
 export type T_Banner = {
-  kind: 'banner';
   bannerImageUrl: string;
   bannerImageAlt: string;
   isActive: boolean;

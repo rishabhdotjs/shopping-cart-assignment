@@ -2,9 +2,9 @@ import { CSSProperties, MouseEventHandler } from 'react';
 import Slider from 'react-slick';
 
 type Props = {
-  className: string;
-  style: CSSProperties;
-  onClick: MouseEventHandler<HTMLDivElement> | undefined;
+  className?: string;
+  style?: CSSProperties;
+  onClick?: MouseEventHandler<HTMLDivElement> | undefined;
 };
 
 const CustomNextArrow = ({ className, style, onClick }: Props): JSX.Element => {
@@ -46,5 +46,9 @@ export default function CustomSlider({
     prevArrow: <CustomPrevArrow />,
     dotsClass: 'custom-dots slick-dots slick-thumb',
   };
-  return <Slider {...settings}>{children}</Slider>;
+  return (
+    <Slider {...settings} lazyLoad="progressive">
+      {children}
+    </Slider>
+  );
 }

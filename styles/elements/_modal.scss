@@ -1,0 +1,51 @@
+.modal-open {
+  overflow: hidden;
+}
+#modal-container {
+  position: relative;
+}
+.backdrop {
+  background-color: rgba(0, 0, 0, 0.7);
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  z-index: 999;
+}
+.modal {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  right: 0;
+  top: toRem(-20);
+  left: 50%;
+  @include theme-aware('background-color', 'color-background');
+  z-index: 1000;
+  height: calc(100vh - 116px);
+  &__header {
+    @include theme-aware('background-color', 'color-text');
+    @include theme-aware('color', 'color-background');
+    padding: toRem(15);
+    display: flex;
+    #modalTitle {
+      margin: 0;
+    }
+  }
+  &__close {
+    margin-left: auto;
+    background-color: transparent;
+    border: 0;
+    padding: 0 toRem(5);
+    svg {
+      @include theme-aware('color', 'color-background');
+      width: toRem(24);
+      height: toRem(24);
+    }
+  }
+  &__body {
+    flex-grow: 1;
+    @include theme-aware('background-color', 'color-background-lightgrey');
+    overflow: scroll;
+  }
+}

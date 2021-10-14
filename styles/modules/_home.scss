@@ -15,6 +15,10 @@
       border-radius: 450px / 15px;
     }
     .custom-arrow {
+      @include respond-above(xs) {
+        display: block !important;
+      }
+      display: none !important;
       right: 0;
       background-color: rgba(0, 0, 0, 0.2);
       font-size: 16px;
@@ -35,7 +39,19 @@
     .custom-dots {
       z-index: 2;
       position: relative;
-      bottom: toRem(20);
+      bottom: toRem(5);
+      @include respond-above(xs) {
+        bottom: toRem(20);
+      }
+      li {
+        button {
+          &:focus,
+          &:active,
+          &:hover {
+            outline: 3px solid rgb(77, 144, 254);
+          }
+        }
+      }
     }
   }
 }
