@@ -28,7 +28,7 @@
         }
       }
     }
-    @include respond-below(xs) {
+    @include respond-below(sm) {
       display: none;
     }
   }
@@ -42,7 +42,7 @@
     position: relative;
     flex-grow: 1;
     margin-bottom: toRem(-10);
-    @include respond-below(xs) {
+    @include respond-below(sm) {
       margin-top: toRem(-10);
       margin-right: toRem(-20);
     }
@@ -70,7 +70,7 @@
     margin-left: auto;
     &__login {
       margin-bottom: toRem(20);
-      @include respond-below(xs) {
+      @include respond-below(sm) {
         display: none;
       }
       ul {

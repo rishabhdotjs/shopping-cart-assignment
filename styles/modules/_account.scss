@@ -11,6 +11,7 @@
   }
   &__sidebar {
     width: 40%;
+    padding-right: toRem(40);
     @include respond-below(xs) {
       width: 100%;
     }

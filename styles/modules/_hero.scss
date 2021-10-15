@@ -4,6 +4,9 @@
   display: flex;
   align-items: center;
   padding: toRem(20);
+  @include respond-below(sm) {
+    padding: toRem(20) 0;
+  }
   margin-bottom: toRem(40);
   &::after {
     z-index: -1;

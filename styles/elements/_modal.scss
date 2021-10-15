@@ -23,7 +23,7 @@
   @include theme-aware('background-color', 'color-background');
   z-index: 1000;
   height: calc(100vh - 116px);
-  @include respond-below(xs) {
+  @include respond-below(sm) {
     left: toRem(-20);
     right: toRem(-20);
     height: calc(100vh - 68px);
