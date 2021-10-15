@@ -1,18 +1,19 @@
-type ButtonProps = {
+interface ButtonProps {
   children: React.ReactNode;
   fullWidth?: boolean;
-  onClick?: () => void;
-  disabled?: boolean;
   customClassName?: string;
-};
+}
 
 const Button = ({
   children,
   fullWidth,
-  disabled = false,
   customClassName,
   ...props
-}: ButtonProps): JSX.Element => {
+}: ButtonProps &
+  React.DetailedHTMLProps<
+    React.ButtonHTMLAttributes<HTMLButtonElement>,
+    HTMLButtonElement
+  >): JSX.Element => {
   return (
     <button
       className={
@@ -20,7 +21,6 @@ const Button = ({
           ? `btn btn--primary btn--block ${customClassName}`
           : `btn btn--primary ${customClassName}`
       }
-      disabled={disabled}
       {...props}
     >
       {children}

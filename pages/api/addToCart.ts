@@ -5,7 +5,7 @@ const addToCartHandler: NextApiHandler = async (request, response) => {
   const { id, sku, qty, price, name, imageURL }: CartProduct = request.body;
 
   // simulate IO latency
-  await new Promise((resolve) => setTimeout(resolve, 500));
+  await new Promise((resolve) => setTimeout(resolve, 800));
 
   if (!id || !sku || !qty || !price || !name || !imageURL)
     return response.status(400).send({

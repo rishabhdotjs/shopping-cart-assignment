@@ -2,6 +2,7 @@
 @import 'vendors/normalize.css';
 @import 'vendors/slick';
 @import 'vendors/nprogress';
+@import 'vendors/react-toastify';
 
 // utils
 @import 'utils/variables';
@@ -30,3 +31,4 @@
 @import 'modules/plp';
 @import 'modules/productCard';
 @import 'modules/cart';
+@import 'modules/account';
