@@ -1,0 +1,66 @@
+.form {
+  &__group {
+    display: flex;
+    flex-flow: column-reverse;
+    margin-bottom: 1em;
+    label,
+    input {
+      transition: all 0.2s;
+      touch-action: manipulation;
+    }
+    input {
+      font-size: toRem(16);
+      border: 0;
+      @include theme-aware('border-bottom-color', 'input-border-color');
+      border-bottom-width: 1px;
+      border-bottom-style: solid;
+      -webkit-appearance: none;
+      border-radius: 0;
+      padding: 0;
+      cursor: text;
+      padding: toRem(10);
+    }
+    input:focus {
+      outline: 0;
+      @include theme-aware('border-bottom-color', 'input-border-color-onfocus');
+      border-bottom-width: 1px;
+      border-bottom-style: solid;
+    }
+
+    label {
+      text-transform: capitalize;
+      @include theme-aware('color', 'text-color-secondary');
+      font-size: toRem(12);
+    }
+    input:placeholder-shown + label {
+      cursor: text;
+      max-width: 66.66%;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      transform-origin: left bottom;
+      transform: translate(0, 2.125rem) scale(1.5);
+    }
+    input:focus::-webkit-input-placeholder {
+      opacity: 1;
+    }
+    input:not(:placeholder-shown) + label,
+    input:focus + label {
+      transform: translate(0, 0) scale(1);
+      cursor: pointer;
+    }
+  }
+  &__error {
+    display: flex;
+    align-items: center;
+    color: red;
+    margin: 0;
+    padding-top: 5px;
+    svg {
+      width: 24px;
+      height: 24px;
+      color: inherit;
+      margin-right: 5px;
+    }
+  }
+}

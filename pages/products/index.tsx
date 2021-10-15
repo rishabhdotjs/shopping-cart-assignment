@@ -1,6 +1,7 @@
 import { GetStaticProps } from 'next';
 import db from '../../database/db';
 import NavLink from '../../src/components/elements/NavLink';
+import CategoryFilter from '../../src/components/shared/CategoryFilter/CategoryFilter';
 import ProductCard from '../../src/components/shared/ProductCard/ProductCard';
 import { T_Category } from '../../utils/types/categories';
 import { T_Product } from '../../utils/types/product';
@@ -17,16 +18,7 @@ export default function Products({
   return (
     <div className="plp">
       <aside className="plp__sidebar">
-        <ul className="filters">
-          {categories &&
-            categories.map((category) => (
-              <li key={category.id}>
-                <NavLink href={`/products/${category.key}/${category.id}`}>
-                  {category.name}
-                </NavLink>
-              </li>
-            ))}
-        </ul>
+        <CategoryFilter categories={categories} subCategoryPage={false} />
       </aside>
       <article className="plp__main">
         {products &&

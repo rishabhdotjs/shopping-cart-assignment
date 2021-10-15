@@ -6,6 +6,7 @@ import ProductCard from '../../../src/components/shared/ProductCard/ProductCard'
 import { T_Category } from '../../../utils/types/categories';
 import NavLink from '../../../src/components/elements/NavLink';
 import { useRouter } from 'next/router';
+import CategoryFilter from '../../../src/components/shared/CategoryFilter/CategoryFilter';
 
 interface IParams extends ParsedUrlQuery {
   categoryId: string;
@@ -24,24 +25,11 @@ export default function CategoryPage({
   return (
     <div className="plp">
       <aside className="plp__sidebar">
-        <ul className="filters">
-          <li>
-            <NavLink href={`/products`}>
-              <strong>&lt; Back to products</strong>
-            </NavLink>
-          </li>
-          {categories &&
-            categories.map((category) => (
-              <li key={category.id}>
-                <NavLink
-                  className={category.id === query.categoryId ? 'active' : ''}
-                  href={`/products/${category.key}/${category.id}`}
-                >
-                  {category.name}
-                </NavLink>
-              </li>
-            ))}
-        </ul>
+        <CategoryFilter
+          categories={categories}
+          subCategoryPage={true}
+          activeCategoryId={query?.categoryId || null}
+        />
       </aside>
       <article className="plp__main">
         {products &&

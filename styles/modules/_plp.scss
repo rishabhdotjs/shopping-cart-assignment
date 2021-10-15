@@ -2,27 +2,59 @@
   display: flex;
   flex-wrap: wrap;
   &__sidebar {
-    width: 20%;
-    @include theme-aware('background-color', 'color-background-lightgrey');
+    width: 100%;
+    @include respond-above(sm) {
+      width: 20%;
+      @include theme-aware('background-color', 'color-background-lightgrey');
+    }
     margin-top: toRem(-20);
     padding-top: toRem(20);
     .filters {
-      width: 100%;
-      margin: 0;
-      padding: 0;
-      list-style-type: none;
-      display: inline-block;
-      li {
+      display: none;
+      @include respond-above(sm) {
+        display: block;
+      }
+      ul {
         width: 100%;
-        a {
-          display: block;
+        margin: 0;
+        padding: 0;
+        list-style-type: none;
+        display: inline-block;
+        li {
           width: 100%;
-          padding: toRem(20);
-          border-bottom: 1px solid #d6d6d6;
-          &.active {
-            @include theme-aware('color', 'links-color-hover');
-            @include all-transition();
+          a {
+            display: block;
+            width: 100%;
+            padding: toRem(20);
+            border-bottom: 1px solid #d6d6d6;
+            &.active {
+              @include theme-aware('color', 'links-color-hover');
+              @include all-transition();
+            }
           }
+        }
+      }
+      &--mobile {
+        display: block;
+        margin: 0 toRem(-20);
+        select {
+          width: 100%;
+          padding: 5px 35px 5px 10px;
+          height: 50px;
+          font-size: toRem(18);
+          -webkit-appearance: none;
+          -moz-appearance: none;
+          appearance: none;
+          @include theme-aware('border-color', 'button-background-color');
+          background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='20' height='20' fill='%23fff'><polygon points='0,0 20,0 10,10'/></svg>");
+          background-repeat: no-repeat;
+          background-position-x: 95%;
+          background-position-y: 75%;
+          @include theme-aware('background-color', 'button-background-color');
+          color: #fff;
+        }
+        @include respond-above(sm) {
+          display: none;
         }
       }
     }
@@ -36,6 +68,9 @@
     @include respond-above(md) {
       grid-template-columns: repeat(4, 1fr);
     }
-    width: 80%;
+    width: 100%;
+    @include respond-above(sm) {
+      width: 80%;
+    }
   }
 }

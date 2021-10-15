@@ -23,6 +23,11 @@
   @include theme-aware('background-color', 'color-background');
   z-index: 1000;
   height: calc(100vh - 116px);
+  @include respond-below(xs) {
+    left: toRem(-20);
+    right: toRem(-20);
+    height: calc(100vh - 68px);
+  }
   &__header {
     @include theme-aware('background-color', 'color-text');
     @include theme-aware('color', 'color-background');
