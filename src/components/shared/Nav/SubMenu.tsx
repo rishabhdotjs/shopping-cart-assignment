@@ -6,7 +6,7 @@ export default function SubMenu(): JSX.Element {
       <ul>
         <li>
           <NavLink href="/login" className="app__link">
-            SignIn
+            Sign In
           </NavLink>
         </li>
         <li>

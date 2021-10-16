@@ -1,10 +1,10 @@
 import { GetStaticPaths, GetStaticProps } from 'next';
+import Head from 'next/head';
 import db from '../../../database/db';
 import { ParsedUrlQuery } from 'querystring';
 import { T_Product } from '../../../utils/types/product';
 import ProductCard from '../../../src/components/shared/ProductCard/ProductCard';
 import { T_Category } from '../../../utils/types/categories';
-import NavLink from '../../../src/components/elements/NavLink';
 import { useRouter } from 'next/router';
 import CategoryFilter from '../../../src/components/shared/CategoryFilter/CategoryFilter';
 
@@ -17,6 +17,13 @@ type ProductProps = {
   products: T_Product[];
 };
 
+function getPageTitle(str: string | string[] | undefined): string {
+  if (str && !Array.isArray(str)) {
+    return str.split('-').join(' ');
+  }
+  return '';
+}
+
 export default function CategoryPage({
   products,
   categories,
@@ -24,6 +31,11 @@ export default function CategoryPage({
   const { query } = useRouter();
   return (
     <div className="plp">
+      <Head>
+        <title>
+          Shop online for {getPageTitle(query?.categoryKey)} in sabka bazaar
+        </title>
+      </Head>
       <aside className="plp__sidebar">
         <CategoryFilter
           categories={categories}

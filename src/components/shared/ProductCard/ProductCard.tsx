@@ -48,11 +48,20 @@ export default function ProductCard({
               <span>MRP:</span> {price}
             </p>
             <div className="buy-now">
-              <Button onClick={handleAddToCart}>Buy now</Button>
+              <Button
+                onClick={handleAddToCart}
+                aria-label={`add 1 quantity of ${name} for Rupees ${price}`}
+              >
+                Buy now
+              </Button>
             </div>
           </div>
           <div className="pcard__footer--mobile">
-            <Button fullWidth onClick={handleAddToCart}>
+            <Button
+              fullWidth
+              onClick={handleAddToCart}
+              aria-label={`add 1 quantity of ${name} for Rupees ${price}`}
+            >
               Buy now @ Rs.{price}
             </Button>
           </div>

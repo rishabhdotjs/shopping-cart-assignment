@@ -54,6 +54,7 @@ export default function CartCard({
               <button
                 className="qty__btn"
                 onClick={() => handleQtyChange('decrement')}
+                aria-label="decrease added quantity by 1"
               >
                 -
               </button>
@@ -67,6 +68,7 @@ export default function CartCard({
               <button
                 className="qty__btn"
                 onClick={() => handleQtyChange('increment')}
+                aria-label="increase added quantity by 1"
               >
                 +
               </button>

@@ -68,7 +68,7 @@ export default function CartView({
           <div className="cart__footer">
             <p>Promo code can be applied on payment page</p>
             <Button customClassName="cart__footer__btn" fullWidth>
-              Proceed to checkout <span>Rs. {grandTotal}&nbsp; &gt;</span>
+              Proceed to checkout <span>Rs. {grandTotal}&nbsp;</span>
             </Button>
           </div>
         </>

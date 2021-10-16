@@ -1,4 +1,5 @@
 import { createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { toast } from 'react-toastify';
 import { AppState } from '../../store/store';
 import { addToCartAPI } from './cartAPI';
 

@@ -35,7 +35,9 @@ function Input<T>({
         {...rest}
         aria-invalid={error ? 'true' : 'false'}
       />
-      <label htmlFor={name}>{label}</label>
+      <label htmlFor={name} aria-hidden="true">
+        {label}
+      </label>
     </div>
   );
 }

@@ -89,7 +89,12 @@ export default function RegisterForm(): JSX.Element {
             placeholder="Re-enter your password"
             error={errors['confirmPassword']}
           />
-          <Button type="submit">Register</Button>
+          <Button
+            type="submit"
+            aria-label="click to register with sabka bazaar"
+          >
+            Register
+          </Button>
         </form>
       </div>
     </article>

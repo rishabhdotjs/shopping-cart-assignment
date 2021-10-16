@@ -1,6 +1,5 @@
 import { GetStaticProps } from 'next';
 import db from '../../database/db';
-import NavLink from '../../src/components/elements/NavLink';
 import CategoryFilter from '../../src/components/shared/CategoryFilter/CategoryFilter';
 import ProductCard from '../../src/components/shared/ProductCard/ProductCard';
 import { T_Category } from '../../utils/types/categories';
