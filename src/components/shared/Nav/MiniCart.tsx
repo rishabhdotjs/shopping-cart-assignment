@@ -31,6 +31,7 @@ export default function MiniCart(): JSX.Element {
           cartProducts={cartProducts}
           grandTotal={itemsAndTotal.grandTotal}
           itemsInCart={itemsAndTotal.items}
+          closeModal={closeModal}
         />
       </Modal>
     </div>

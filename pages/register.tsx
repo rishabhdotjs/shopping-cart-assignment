@@ -3,6 +3,8 @@ import * as yup from 'yup';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import Input from '../src/components/elements/Input';
 import Button from '../src/components/elements/Button';
+import { attemptRegister } from '../src/features/auth/authAPI';
+import { useRouter } from 'next/router';
 
 type RegisterFormInput = {
   firstName: string;
@@ -20,7 +22,10 @@ const schema = yup
     password: yup
       .string()
       .required('Please enter password')
-      .min(8, 'Password must be of minimum 8 characters'),
+      .matches(
+        /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{6,})/,
+        'Must Contain 6 Characters, One Uppercase, One Lowercase, One Number and One Special Case Character'
+      ),
     confirmPassword: yup
       .string()
       .required('Please re-enter password')
@@ -36,13 +41,18 @@ export default function RegisterForm(): JSX.Element {
   } = useForm({
     resolver: yupResolver(schema),
   });
-  const onSubmit: SubmitHandler<RegisterFormInput> = (data) =>
-    console.log(data);
+  const router = useRouter();
+  const onSubmit: SubmitHandler<RegisterFormInput> = async (data) => {
+    const result = await attemptRegister(data);
+    if (result.status === 'authenticated') {
+      router.push('/');
+    }
+  };
 
   return (
     <article className="account">
       <aside className="account__sidebar">
-        <h1>Sign up</h1>
+        <h1 role="heading">Sign up</h1>
         <p>We do not share personal detail with anyone</p>
       </aside>
       <div className="account__form">

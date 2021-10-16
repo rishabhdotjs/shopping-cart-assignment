@@ -1,5 +1,4 @@
 export type T_Category = {
-  kind: 'category';
   name: string;
   key: string;
   description: string;

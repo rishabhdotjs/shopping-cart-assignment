@@ -4,6 +4,8 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
 import Button from '../src/components/elements/Button';
 import Input from '../src/components/elements/Input';
+import { useRouter } from 'next/router';
+import { attemptLogin } from '../src/features/auth/authAPI';
 
 type LoginFormInput = {
   email: string;
@@ -22,7 +24,10 @@ const schema = yup
     password: yup
       .string()
       .required('Please enter password to login')
-      .min(8, 'Password must be of minimum 8 characters'),
+      .matches(
+        /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{6,})/,
+        'Must Contain 6 Characters, One Uppercase, One Lowercase, One Number and One Special Case Character'
+      ),
   })
   .required();
 
@@ -34,14 +39,20 @@ export default function Login(): JSX.Element {
   } = useForm<LoginFormInput>({
     resolver: yupResolver(schema),
   });
-  const onSubmit: SubmitHandler<LoginFormInput> = (data) => console.log(data);
+  const router = useRouter();
+  const onSubmit: SubmitHandler<LoginFormInput> = async (data) => {
+    const result = await attemptLogin(data);
+    if (result.status === 'authenticated') {
+      router.push('/');
+    }
+  };
 
   return (
     <>
       {pageMetaData}
       <article className="account">
         <aside className="account__sidebar">
-          <h1>Login</h1>
+          <h1 role="heading">Login</h1>
           <p>Get access to your Orders, Wishlist and Recommendations</p>
         </aside>
         <div className="account__form">

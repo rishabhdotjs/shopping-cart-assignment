@@ -28,10 +28,10 @@ export default function HeroBanner({
         />
       </div>
       <div className="hero__text">
-        <h3>{name}</h3>
+        <h3 role="heading">{name}</h3>
         <p>{description}</p>
         <Link href={`/products/${itemKey}/${id}`}>
-          <a className="btn btn--primary">Explore {name}</a>
+          <a className="btn btn--primary">{`Explore ${name}`}</a>
         </Link>
       </div>
     </article>

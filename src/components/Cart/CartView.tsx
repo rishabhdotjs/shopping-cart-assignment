@@ -12,12 +12,14 @@ export default function CartView({
   cartProducts,
   grandTotal,
   itemsInCart,
+  closeModal,
 }: {
   cartProducts: {
     [key: string]: CartProduct;
   };
   grandTotal: number;
   itemsInCart: number;
+  closeModal?: () => void;
 }): JSX.Element {
   const dispatch = useAppDispatch();
   const handleQtyChange = (id: string, requestQty: number) => {
@@ -67,7 +69,11 @@ export default function CartView({
           </div>
           <div className="cart__footer">
             <p>Promo code can be applied on payment page</p>
-            <Button customClassName="cart__footer__btn" fullWidth>
+            <Button
+              onClick={closeModal}
+              customClassName="cart__footer__btn"
+              fullWidth
+            >
               Proceed to checkout <span>Rs. {grandTotal}&nbsp;</span>
             </Button>
           </div>
