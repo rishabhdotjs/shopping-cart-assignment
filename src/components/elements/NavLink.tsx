@@ -14,8 +14,8 @@ function NavLink({
   children,
   ...props
 }: Props): JSX.Element {
-  const { pathname } = useRouter();
-  const isActive = exact ? pathname === href : pathname.startsWith(href);
+  const { pathname = null } = useRouter() || {};
+  const isActive = exact ? pathname === href : pathname?.startsWith(href);
 
   if (isActive) {
     props.className += ' active';

@@ -6,7 +6,7 @@ import { fireEvent } from '@testing-library/dom';
 
 afterEach(cleanup);
 
-describe('Login', () => {
+describe('Login page test suite', () => {
   it('renders Login page', () => {
     // Arrange
     render(<Login />);

@@ -2,7 +2,7 @@ import React from 'react';
 import { render, screen } from '@testing-library/react';
 import Register from '../../pages/register';
 
-describe('Register', () => {
+describe('Register test suite', () => {
   it('renders register page', () => {
     // Arrange
     render(<Register />);
