@@ -25,8 +25,28 @@ $themes: (
     input-border-color-onfocus: #50c1cd,
   ),
   dark: (
-    color-background: #37474f,
+    // body
+    color-background: #121212,
     color-text: #fff,
-    // dark theme color pallete not provided yet.
+    color-background-darkgrey: #b9b9b9,
+    color-background-lightgrey: #eaeaea,
+    // buttons
+    button-background-color: #d10057,
+    button-text-color: #fff,
+    button-background-color-hover: #fff,
+    button-text-color-hover: #d10057,
+    // inputs
+    input-color: #5ac5cf,
+    // text
+    text-color-primary: #fff,
+    text-color-secondary: #6d727d,
+    text-color-tertiary: #847d7e,
+    text-color-alternate: #fff,
+    // links
+    links-color-primary: #fff,
+    links-color-hover: #d10057,
+    // input
+    input-border-color: #b9b9b9,
+    input-border-color-onfocus: #50c1cd,
   ),
 );

@@ -69,7 +69,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
   }
   return {
     paths: [],
-    fallback: false,
+    fallback: false, // we have limited products and category, hence fallback is false i.e. any paths not returned by getStaticPaths will result in a 404 pageProps
   };
 };
 
@@ -82,5 +82,6 @@ export const getStaticProps: GetStaticProps = async (context) => {
       products,
       categories,
     },
+    revalidate: 30 * 60, // 30 mins
   };
 };

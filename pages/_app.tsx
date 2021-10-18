@@ -3,7 +3,6 @@ import Head from 'next/head';
 import { Provider } from 'react-redux';
 import nProgress from 'nprogress';
 import type { AppProps } from 'next/app';
-import { useEffect } from 'react';
 import { ToastContainer } from 'react-toastify';
 import Layout from '../src/components/Layout/Layout';
 import '../styles/main.scss';
@@ -14,9 +13,6 @@ Router.events.on('routeChangeError', nProgress.done);
 Router.events.on('routeChangeComplete', nProgress.done);
 
 function MyApp({ Component, pageProps }: AppProps): JSX.Element {
-  useEffect(() => {
-    document.documentElement.classList.add('theme-light');
-  }, []);
   return (
     <Provider store={store}>
       <Layout>

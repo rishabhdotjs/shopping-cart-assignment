@@ -37,5 +37,6 @@ export const getStaticProps: GetStaticProps = async () => {
       categories,
       products,
     },
+    revalidate: 30 * 60, // 30 mins
   };
 };
