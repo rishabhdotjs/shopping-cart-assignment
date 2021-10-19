@@ -1,9 +1,8 @@
 import React from 'react';
 import { screen } from '@testing-library/react';
-import { render } from '../../../utils/test-utils';
-import { act } from 'react-dom/test-utils';
+import { render } from '../utils/test-utils';
 import { fireEvent } from '@testing-library/dom';
-import CartPage from '../../../../pages/cart';
+import CartPage from '../../pages/cart';
 
 const initialState = {
   cart: {
