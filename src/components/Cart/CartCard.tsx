@@ -64,6 +64,7 @@ export default function CartCard({
                 name="quantity"
                 value={enteredQty}
                 onChange={handleQtyInput}
+                aria-label="quantity stepper"
               />
               <button
                 className="qty__btn"
