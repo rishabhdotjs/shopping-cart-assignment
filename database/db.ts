@@ -45,7 +45,6 @@ const db = {
       'index.get.json'
     );
     if (products && Array.isArray(products)) {
-      // based on passed categoryId filter products
       return products;
     }
     return null;

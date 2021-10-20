@@ -16,7 +16,7 @@ export default function MiniCart(): JSX.Element {
       <button
         onClick={openModal}
         className="app__minicart-button"
-        aria-label={`Shopping cart 0 items`}
+        aria-label={`Shopping cart ${itemsAndTotal.items} items`}
       >
         <CartIcon />
         <span>{itemsAndTotal.items} Items</span>

@@ -12,9 +12,7 @@ export type CartProduct = {
 };
 
 type State = {
-  products: {
-    [key: string]: CartProduct;
-  };
+  products: Record<string, CartProduct>;
   loading: boolean;
   error: boolean;
 };
