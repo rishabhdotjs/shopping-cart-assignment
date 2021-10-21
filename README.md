@@ -3,7 +3,8 @@
 Please run below commands to run the application:
 
 ```bash
-npm run build && npm run start
+1. npm install
+2. npm run build && npm run start
 ```
 
 ## Lighthouse Scores
