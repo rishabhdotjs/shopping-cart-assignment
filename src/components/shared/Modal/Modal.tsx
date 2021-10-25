@@ -1,3 +1,4 @@
+import FocusTrap from 'focus-trap-react';
 import { useEffect } from 'react';
 import ClientOnlyPortal from '../ClientOnlyPortal/ClientOnlyPortal';
 import CloseIcon from '../Icons/Close';
@@ -25,6 +26,7 @@ export default function Modal({
       document.body.classList.remove('modal-open');
     };
   }, [isVisible]);
+
   return (
     <>
       {isVisible ? (
@@ -39,15 +41,22 @@ export default function Modal({
                   }
             }
           />
-          <div className="modal">
-            <div className="modal__header">
-              <h3 id="modalTitle">{modalTitle}</h3>
-              <button className="modal__close" onClick={handleModalClose}>
-                <CloseIcon />
-              </button>
+          <FocusTrap>
+            <div
+              className="modal"
+              role="dialog"
+              aria-modal="true"
+              aria-label={modalTitle}
+            >
+              <div className="modal__header">
+                <h3 id="modalTitle">{modalTitle}</h3>
+                <button className="modal__close" onClick={handleModalClose}>
+                  <CloseIcon />
+                </button>
+              </div>
+              <div className="modal__body">{children}</div>
             </div>
-            <div className="modal__body">{children}</div>
-          </div>
+          </FocusTrap>
         </ClientOnlyPortal>
       ) : null}
     </>

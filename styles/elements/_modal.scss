@@ -47,6 +47,9 @@
       width: toRem(24);
       height: toRem(24);
     }
+    &:focus {
+      outline: 3px solid rgb(77, 144, 254);
+    }
   }
   &__body {
     flex-grow: 1;
