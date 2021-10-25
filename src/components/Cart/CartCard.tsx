@@ -39,6 +39,8 @@ export default function CartCard({
     }
   };
 
+  const totalItemPrice = (qty * price).toFixed(2);
+
   return (
     <article className="card">
       <div className="card__image">
@@ -73,11 +75,17 @@ export default function CartCard({
               >
                 +
               </button>
-              <span className="qty__price">
+              <span className="qty__price" aria-hidden="true">
                 <i>X</i> Rs. {price}
               </span>
             </div>
-            <div className="price">{(qty * price).toFixed(2)}</div>
+            <div
+              className="price"
+              aria-live="polite"
+              aria-label={`Total item price is Rupees ${totalItemPrice}`}
+            >
+              {totalItemPrice}
+            </div>
           </div>
         </div>
       </div>

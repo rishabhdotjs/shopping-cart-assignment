@@ -50,7 +50,11 @@ export default function Modal({
             >
               <div className="modal__header">
                 <h3 id="modalTitle">{modalTitle}</h3>
-                <button className="modal__close" onClick={handleModalClose}>
+                <button
+                  aria-label={`close ${modalTitle} button`}
+                  className="modal__close"
+                  onClick={handleModalClose}
+                >
                   <CloseIcon />
                 </button>
               </div>

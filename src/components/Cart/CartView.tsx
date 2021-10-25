@@ -57,13 +57,12 @@ export default function CartView({
               />
             );
           })}
-          <div className="price-gurantee">
+          <div className="price-gurantee" aria-hidden="true">
             <Image
               src={'/images/lowest-price.png'}
               width={144}
               height={51}
               alt="Lowest price"
-              aria-hidden="true"
             />
             <p>You won&apos;t find it cheaper anywhere.</p>
           </div>
